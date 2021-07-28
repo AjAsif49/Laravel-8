@@ -20,7 +20,7 @@
                         All Category
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('all.category') }}">
+                    <x-jet-nav-link href="{{ route('all.brand') }}">
                         Brand
                     </x-jet-nav-link>
 
@@ -182,7 +182,7 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
+                    
                     <x-jet-responsive-nav-link href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                     this.closest('form').submit();">
