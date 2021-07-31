@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Brand;
 use Illuminate\Support\Carbon;
+use Image;
 
 
 
@@ -28,12 +29,16 @@ class BrandController extends Controller
         ]);
         $brand_image = $request->file('brand_image');
 
-        $name_generate = hexdec(uniqid());
-        $img_ext = strtolower($brand_image->getClientOriginalExtension());
-        $img_name = $name_generate.'.'.$img_ext;
-        $upload_location = 'image/brand/';
-        $last_img = $upload_location.$img_name;
-        $brand_image -> move($upload_location, $img_name);
+        // $name_generate = hexdec(uniqid());
+        // $img_ext = strtolower($brand_image->getClientOriginalExtension());
+        // $img_name = $name_generate.'.'.$img_ext;
+        // $upload_location = 'image/brand/';
+        // $last_img = $upload_location.$img_name;
+        // $brand_image -> move($upload_location, $img_name);
+
+        $name_generate = hexdec(uniqid()).'.'.$brand_image->getClientOriginalExtension();
+        Image::make($brand_image)-> resize(300, 200)->save('image/brand'.$name_generate);
+        $last_img = 'image/brand/'.$name_generate;
 
         Brand::insert([
             'brand_name'=> $request->brand_name,
