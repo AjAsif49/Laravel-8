@@ -64,10 +64,9 @@ Route::post('/image/add', [MultiImageController::class, 'StoreImg'])->name('stor
 
 
 
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     // $users = User::all();
+    // $users = DB::table('users')->get();
 
-    $users = DB::table('users')->get();
-    return view('dashboard', compact('users'));
+    return view('admin.index');
 })->name('dashboard');
