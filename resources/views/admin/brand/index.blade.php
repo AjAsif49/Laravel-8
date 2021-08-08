@@ -1,13 +1,6 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+@extends('admin.admin_master')
+@section('admin')
 
-            All Brand <b></b>
-            
-        </h2>
-
-
-    </x-slot>
 
     <div class="py-12">
         
@@ -44,7 +37,7 @@
     <tr>       
       <th scope="row">{{ $brands->firstItem()+$loop->index }}</th>
       <td> {{ $brand->brand_name }} </td>
-      <td> <img src="{{ asset( $brand->brand_image ) }}" style="height:40px; width:70px;" alt=""> </td>
+      <td> <img src="{{ asset($brand->brand_image) }}" style="height:40px; width:70px;" alt=""> </td>
       <td> {{ carbon\carbon::parse($brand->created_at)->diffForHumans() }} </td>
       <td>
         <a href="{{ url('brand/edit/'.$brand->id) }}" class="btn btn-info">Edit</a>
@@ -100,4 +93,4 @@
     </div>
 
     </div>
-</x-app-layout>
+@endsection

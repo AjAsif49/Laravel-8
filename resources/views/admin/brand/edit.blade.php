@@ -1,13 +1,6 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+@extends('admin.admin_master')
+@section('admin')
 
-            Edit Brand <b></b>
-            
-        </h2>
-
-
-    </x-slot>
 
     @if(session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -65,9 +58,8 @@
     </div>
 
     </div>
-</x-app-layout>
 
-
+@endsection
 
 
 
