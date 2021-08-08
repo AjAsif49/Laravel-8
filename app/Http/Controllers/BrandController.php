@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Brand;
 use Illuminate\Support\Carbon;
 use Image;
+use Auth;
 
 
 
@@ -117,5 +118,11 @@ class BrandController extends Controller
         Brand::find($id)->delete();
         return Redirect()->back()->with('success', 'Brand Deleted Successfully');
 
+    }
+
+
+    public function Logout(){
+        Auth::logout();
+        return redirect()->route('login')->with('success', 'Logout Successfully');
     }
 }
