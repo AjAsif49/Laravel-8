@@ -8,7 +8,7 @@
         <div class="row">
 
         <h4>Home Slider</h4>
-        <a href=""><button class= 'btn btn-info'>Add Slider</button></a>
+        <a href="{{ route('add.slider') }}"><button class= 'btn btn-info'>Add Slider</button></a>
 
 
             <div class="col-md-12">
@@ -27,27 +27,27 @@
   <thead>
     <tr>
         
-      <th scope="col">SL No</th>
-      <th scope="col"> Title</th>
-      <th scope="col"> Description</th>
-      <th scope="col"> image </th>
-      <th scope="col">Action</th>
+      <th scope="col" width="5%">SL No</th>
+      <th scope="col" width="15%"> Title</th>
+      <th scope="col" width="25%"> Description</th>
+      <th scope="col" width="15%"> image </th>
+      <th scope="col" width="15%">Action</th>
       
     </tr>
   </thead>
   <tbody>
   
-    <!-- @php($i=1)  -->
+    @php($i=1) 
     @foreach($sliders as $slider)
     <tr>       
-      <th scope="row">{{ $sliders->firstItem()+$loop->index }}</th>
+      <th scope="row">{{ $i++ }}</th>
       <td> {{ $slider->title }} </td>
       <td> {{ $slider->description }} </td>
       <td> <img src="{{ asset($slider->image) }}" style="height:40px; width:70px;" alt=""> </td>
-      
-        <a href="{{ url('slider/edit/'.$slider->id) }}" class="btn btn-info">Edit</a>
+      <td><a href="{{ url('slider/edit/'.$slider->id) }}" class="btn btn-info">Edit</a>
         <a href="{{ url('slider/delete/'.$slider->id) }}" onclick="return confirm('Are you Sure to Delete?')" class="btn btn-danger">Delete</a>
       </td>
+        
     </tr>
     @endforeach
   </tbody>

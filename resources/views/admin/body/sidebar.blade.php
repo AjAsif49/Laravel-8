@@ -2,7 +2,7 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="/index.html">
+              <a href="/dashboard">
                 <svg
                   class="brand-icon"
                   xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@
                     <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
                   </g>
                 </svg>
-                <span class="brand-name">Admin Dashboard</span>
+                <span  class="brand-name">Admin Dashboard</span>
               </a>
             </div>
             <!-- begin sidebar scrollbar -->
