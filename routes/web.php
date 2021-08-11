@@ -5,10 +5,14 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\PortfolioController;
+
 
 use App\Http\Controllers\MultiImageController;
 
 use App\Models\User;
+use App\Models\multipic;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -27,8 +31,10 @@ Route::get('/email/verify', function () {
 })->middleware('auth')->name('verification.notice');
 
 Route::get('/', function () {
-    $brands =DB::table('brands')->get();
-    return view('home', compact('brands'));
+    $brands = DB::table('brands')->get();
+    $about = DB::table('home_abouts')->first();
+    $images = Multipic::all();
+    return view('home', compact('brands', 'about', 'images'));
 });
 
 Route::get('/home', function () {
@@ -71,7 +77,26 @@ Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slide
 Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('store.slider');
 Route::get('/slider/edit/{id}', [HomeController::class, 'Edit']);
 Route::post('/slider/update/{id}', [HomeController::class, 'Update']);
+Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
 
+
+
+//Home about All routes
+Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
+Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
+Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store.about');
+Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout']);
+Route::post('/update/homeabouut/{id}', [AboutController::class, 'UpdateAbout']);
+Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
+
+
+
+//Portfolio 
+Route::get('/portfolio', [PortfolioController::class, 'Portfolio'])->name('portfolio');
+
+
+//Admin Contact page
+Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
 
 
 

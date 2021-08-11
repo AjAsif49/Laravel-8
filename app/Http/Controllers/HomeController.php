@@ -88,6 +88,16 @@ class HomeController extends Controller
             return Redirect()->route('home.slider')->with('success', 'Slider updated Successfully');
 
         }
-}
+    }  
+
+    public function delete($id){
+        $image = Slider::find($id);
+        $old_image = $image->image;
+        unlink($old_image);
+
+        Slider::find($id)->delete();
+        return Redirect()->back()->with('success', 'Slider Deleted Successfully');
+
+    }
 
 }
