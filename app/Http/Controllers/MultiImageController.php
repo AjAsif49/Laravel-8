@@ -15,7 +15,7 @@ class MultiImageController extends Controller
 
     public function multipic(){
         $images = multipic::all();
-        return view('admin.multipic.index', compact('images'));
+        return view('admin.pages.multipic.index', compact('images'));
     }
 
 
@@ -25,7 +25,7 @@ public function StoreImg(Request $request){
         foreach($image as $multi_img){
 
         $name_generate = hexdec(uniqid()).'.'.$multi_img->getClientOriginalExtension();
-        Image::make($multi_img)-> resize(300, 200)->save('image/multi/'.$name_generate);
+        Image::make($multi_img)->save('image/multi/'.$name_generate);
         $last_img = 'image/multi/'.$name_generate;
 
         multipic::insert([

@@ -71,13 +71,6 @@ Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
 Route::get('/multi/image', [MultiImageController::class, 'multipic'])->name('multi.image');
 Route::post('/image/add', [MultiImageController::class, 'StoreImg'])->name('store.image');
 
-//Admin All route
-Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
-Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
-Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('store.slider');
-Route::get('/slider/edit/{id}', [HomeController::class, 'Edit']);
-Route::post('/slider/update/{id}', [HomeController::class, 'Update']);
-Route::get('/slider/delete/{id}', [HomeController::class, 'Delete']);
 
 
 
@@ -95,8 +88,7 @@ Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
 Route::get('/portfolio', [PortfolioController::class, 'Portfolio'])->name('portfolio');
 
 
-//Admin Contact page
-Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
+
 
 
 
@@ -105,7 +97,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     // $users = User::all();
     // $users = DB::table('users')->get();
 
-    return view('admin.index');
+    return view('admin.pages.index');
 })->name('dashboard');
 
 Route::get('/user/logout', [BrandController::class, 'logout'])->name('user.logout');

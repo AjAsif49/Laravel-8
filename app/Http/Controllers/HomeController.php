@@ -12,11 +12,11 @@ class HomeController extends Controller
 {
     public function HomeSlider(){
     $sliders = Slider::latest()->get();
-    return view('admin.slider.index', compact('sliders'));
+    return view('admin.pages.slider.index', compact('sliders'));
     }
 
     public function AddSlider(){
-        return view('admin.slider.create');
+        return view('admin.pages.slider.create');
     }
 
     public function StoreSlider(Request $request){
@@ -38,7 +38,7 @@ class HomeController extends Controller
     }
     public function Edit($id){
         $Sliders = Slider::find($id);
-        return view('admin.slider.edit', compact('Sliders'));
+        return view('admin.pages.slider.edit', compact('Sliders'));
 
     }
 

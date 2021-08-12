@@ -11,11 +11,11 @@ class AboutController extends Controller
 {
     public function HomeAbout(){
         $homeabouts = HomeAbout::latest()->get();
-        return view('admin.home.index', compact('homeabouts'));
+        return view('admin.pages.home.index', compact('homeabouts'));
     }
 
     public function AddAbout(){
-        return view('admin.home.create');
+        return view('admin.pages.home.create');
     }
 
     public function StoreAbout(Request $request){
@@ -26,13 +26,13 @@ class AboutController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        return Redirect()->route('home.about')->with('success', 'About Added Successfully');
+        return Redirect()->route('home.pages.about')->with('success', 'About Added Successfully');
 
     }
 
     public function EditAbout($id){
         $homeabout = HomeAbout::find($id);
-        return view('admin.home.edit', compact('homeabout'));
+        return view('admin.pages.home.edit', compact('homeabout'));
     }
 
     public function UpdateAbout(Request $request, $id){
@@ -41,7 +41,7 @@ class AboutController extends Controller
             'short_des' => $request->short_des,
             'long_des' => $request->long_des,        ]);
 
-        return Redirect()->route('home.about')->with('success', 'About Updated Successfully');
+        return Redirect()->route('home.pages.about')->with('success', 'About Updated Successfully');
 
     }
 

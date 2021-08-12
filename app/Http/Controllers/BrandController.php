@@ -18,7 +18,7 @@ class BrandController extends Controller
 
     public function AllBrand(){
         $brands = Brand::latest()->paginate(5);
-        return view('admin.brand.index', compact('brands'));
+        return view('admin.pages.brand.index', compact('brands'));
     }
 
     public function StoreBrand(Request $request){
@@ -57,7 +57,7 @@ class BrandController extends Controller
 
     public function Edit($id){
         $brands = Brand::find($id);
-        return view('admin.brand.edit', compact('brands'));
+        return view('admin.pages.brand.edit', compact('brands'));
 
     }
 

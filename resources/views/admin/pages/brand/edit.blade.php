@@ -1,4 +1,4 @@
-@extends('admin.admin_master')
+@extends('admin.layouts.admin_master')
 @section('admin')
 
 
@@ -7,7 +7,7 @@
                 <strong>{{session('success')}}</strong> 
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-        @endif
+    @endif
 
     <div class="py-12">
         

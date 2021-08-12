@@ -1,4 +1,4 @@
-@extends('admin.admin_master')
+@extends('admin.layouts.admin_master')
 @section('admin')
 
 
@@ -7,8 +7,8 @@
     <div class= "container">
         <div class="row">
 
-        <h4>Contact Page</h4>
-        <a href="{{ route('add.about') }}"><button class= 'btn btn-info'>Add Contact</button></a>
+        <h4>Home About</h4>
+        <a href="{{ route('add.about') }}"><button class= 'btn btn-info'>Add About</button></a>
 
 
             <div class="col-md-12">
@@ -21,16 +21,16 @@
                 </div>
                 @endif
 
-                    <div class="card-header"> All Contacts </div>
+                    <div class="card-header"> All Slider </div>
 
         <table class="table">
   <thead>
     <tr>
         
       <th scope="col" width="5%">SL No</th>
-      <th scope="col" width="15%"> Address</th>
-      <th scope="col" width="15%"> Email </th>
-      <th scope="col" width="25%"> Phone </th>
+      <th scope="col" width="15%"> Title</th>
+      <th scope="col" width="15%"> Short Description</th>
+      <th scope="col" width="25%"> Long Description </th>
       <th scope="col" width="15%">Action</th>
       
     </tr>
@@ -38,14 +38,14 @@
   <tbody>
   
     @php($i=1) 
-    @foreach($contacts as $contact)
+    @foreach($homeabouts as $about)
     <tr>       
       <th scope="row">{{ $i++ }}</th>
-      <td> {{ $contact->address }} </td>
-      <td> {{ $contact->email }} </td>
-      <td> {{ $contact->phone }} </td>
-      <td><a href="{{ url('contact/edit/'.$contact->id) }}" class="btn btn-info">Edit</a>
-        <a href="{{ url('contact/delete/'.$contact->id) }}" onclick="return confirm('Are you Sure to Delete?')" class="btn btn-danger">Delete</a>
+      <td> {{ $about->title }} </td>
+      <td> {{ $about->short_des }} </td>
+      <td> {{ $about->long_des }} </td>
+      <td><a href="{{ url('about/edit/'.$about->id) }}" class="btn btn-info">Edit</a>
+        <a href="{{ url('about/delete/'.$about->id) }}" onclick="return confirm('Are you Sure to Delete?')" class="btn btn-danger">Delete</a>
       </td>
         
     </tr>
